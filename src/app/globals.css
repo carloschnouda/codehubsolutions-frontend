@@ -64,7 +64,35 @@ body {
 textarea {
   resize: none;
 }
+/*React Select */
+.service-react-select {
+  color: #c4c4c4 !important;
+}
+.input-styling__control {
+  color: #00004b !important;
+  opacity: 1 !important;
+}
 
+.service-react-select.input-styling__single-value{
+  color: #00004b !important;
+}
+.service-react-select.input-styling__menu-list {
+  background-color: transparent !important;
+}
+.service-react-select.input-styling__control--is-focused {
+  box-shadow: none !important;
+  border-color: #e5e7eb !important;
+}
+
+.input-styling__option--is-selected {
+  background-color: transparent !important;
+  color: #00004b !important;
+}
+
+.service-react-select.input-styling__option.service-react-select.input-styling__option--is-focused.css-d7l1ni-option {
+  background-color: #00004b !important;
+  color: #fff !important;
+}
 /* Animation */
 .animate {
   transition: transform 1s ease, opacity 1s ease;

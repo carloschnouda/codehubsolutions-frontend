@@ -32,7 +32,7 @@ function ContactForm({ services, formSettings }) {
             fn.append('name', data.name)
             fn.append('phone_number', data.phone_number)
             fn.append('subject', data.subject)
-            fn.append('service_id', (data?.service_id ? data?.service_id.value || data.service : ''))
+            fn.append('service_id', data?.service_id ? data?.service_id : '')
             fn.append('message', data.message)
             fn.append('email', data.email)
 
@@ -40,6 +40,9 @@ function ContactForm({ services, formSettings }) {
         },
         onSuccess: _ => {
             reset();
+            setTimeout(() => {
+                ContactFormMutation.reset()
+            }, 5000)
         },
         onError: (err) => {
             if (err.response?.data?.errors) {
@@ -54,12 +57,10 @@ function ContactForm({ services, formSettings }) {
         }
     })
 
+
+
     function onSubmit(data) {
-        const submissionData = {
-            ...data,
-            service: data.service_id?.value || data.service
-        };
-        ContactFormMutation.mutate(submissionData);
+        ContactFormMutation.mutate({ ...data, service_id: data?.service?.value });
     }
 
     const handlePhoneInput = (e) => {
@@ -118,7 +119,7 @@ function ContactForm({ services, formSettings }) {
                                     {formSettings?.service_label}
                                 </label>
                                 <div className="mt-2">
-                                    <SelectServiceComponent errormessage={errors?.service_id?.message} services={services} control={control} name="service_id" />
+                                    <SelectServiceComponent errormessage={errors?.service_id?.message} services={services} control={control} name="service" />
                                 </div>
                             </div>
                             <div className="sm:col-span-3">
@@ -150,25 +151,22 @@ function ContactForm({ services, formSettings }) {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-start gap-x-6 px-6 lg:px-24 xl:px-64">
+                {!ContactFormMutation?.isSuccess && <div className="flex items-center justify-center gap-x-6 px-6 lg:px-24 xl:px-64">
                     <button
                         type="submit"
-                        className="rounded-md bg-[#00004b] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0000b8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="rounded-3xl bg-[#00004b] px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-[#0000b8] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
                         {ContactFormMutation.isLoading ? 'Loading ...' : formSettings?.button_text}
                     </button>
-                </div>
+                </div>}
 
-                {ContactFormMutation?.data?.success_message && (
-                    <div className="text-center text-sm font-medium text-green-600">
-                        {ContactFormMutation?.data?.success_message}
-                    </div>
-                )}
-                {ContactFormMutation?.isError && (
-                    <div className="text-center text-sm font-medium text-red-600">
-                        Could not submit form. Please try again later
-                    </div>
-                )}
+                <div className='px-6 lg:px-24 xl:px-64'>
+                    {ContactFormMutation?.isSuccess && (
+                        <div className="text-center text-sm font-medium text-green-600 mt-4 bg-green-100 p-6 rounded-md w-fit m-auto">
+                            {formSettings?.success_message}
+                        </div>
+                    )}
+                </div>
             </form>
         </>
     )
