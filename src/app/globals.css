@@ -3,25 +3,128 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --bg: #0d0c22;
+  --bgSoft: #2d2b42;
+  --text: white;
+  --mainBlue: #00004b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  overflow-x: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mobileMenuOverlay {
+  position: fixed;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00004b73;
+  z-index: 11;
+}
+.swiper-slide {
+  height: auto !important;
+}
+.swiper-pagination-bullet-active {
+  background: #00004b !important;
+}
+
+.overlay {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: #00004b;
+}
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Animation */
+.animate {
+  transition: transform 1s ease, opacity 1s ease;
+  opacity: 0;
+}
+.animate.show {
+  opacity: 1;
+}
+.animate-left {
+  transform: translateX(-40px);
+}
+.animate-left.show {
+  transform: translateX(0);
+}
+.animate-right {
+  transform: translateX(40px);
+}
+.animate-right.show {
+  transform: translateX(0);
+}
+.animate-up {
+  transform: translateY(-40px);
+}
+.animate-up.show {
+  transform: translateY(0);
+}
+.animate-down {
+  transform: translateY(40px);
+}
+.animate-down.show {
+  transform: translateY(0);
+}
+.animate-zoom {
+  opacity: 0;
+  transform: scale(-0.1);
+}
+.animate-zoom.show {
+  transform: scale(1);
+  opacity: 1;
+}
+.animate-skew {
+  transform: skewX(20deg);
+}
+.animate-skew.show {
+  transform: skewX(0);
+}
+.animate-combo {
+  transform: translateY(40px) rotate(-180deg) scale(0.5);
+  opacity: 0;
+}
+.animate-combo.show {
+  transform: translateY(0) rotate(0) scale(1);
+  opacity: 1;
+}
+.no-transition-delay {
+  transition-delay: 0s;
+}
+
+@media (max-width: 768px) {
+  .parallax {
+    background-attachment: scroll;
+  }
 }

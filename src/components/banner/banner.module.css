@@ -1,0 +1,23 @@
+.bannerWrapper {
+  position: relative;
+}
+.bannerWrapper:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: #00004b;
+  z-index: 1;
+}
+
+.bannerText {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  z-index: 2;
+}

@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  position: relative;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.navbarLinks{
+  position: relative;
+}
+.navbarLinks.navbarLinkActive::after{
+  width: 100%;
+}
+.navbarLinks::after{
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -5px;
+  height: 1px;
+  width: 0;
+  background: #fff;
+  transition: width 0.4s ease-in-out;
+}
+.navbarLinks:hover::after{
+  width: 100%;
+}
+
+.mobileMenuLinkActive{
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  color: #00004b;
+}

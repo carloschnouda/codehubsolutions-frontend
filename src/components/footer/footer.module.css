@@ -1,0 +1,7 @@
+@media(max-width: 767px){
+    .footerLogo{
+        height:auto;
+        width: auto;
+        max-width: 250px;
+    }
+}

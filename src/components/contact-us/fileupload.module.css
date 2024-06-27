@@ -1,0 +1,7 @@
+/* ./styles.css */
+.buttonUploadLabel {
+  padding: 6px 8px;
+}
+.buttonUploadLabel:hover{
+    cursor: pointer;
+}
