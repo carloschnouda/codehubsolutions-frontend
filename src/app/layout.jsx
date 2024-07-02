@@ -4,16 +4,28 @@ import Footer from "@/components/footer/Footer";
 import axios from "axios";
 import AppProviders from "@/providers/AppProviders";
 
-export const metadata = {
-  title: "CodeHubSolutions",
-  description: "CRAFT YOUR CODING PROJECT",
+
+
+async function getGeneralSettings() {
+  const res = axios.get('https://admin.codehubsolutions.net/api/general');
+  return (await res).data;
+}
+
+export let metadata = {
+  title: "HomeData",
+  description: "Test Description",
+  openGraph: {
+    type: 'website',
+    title: 'HomeTest',
+    description: 'CodeHubSolutions testing',
+    url: 'https://codehub-solutions.vercel.app/',
+    siteName: 'CodeHubSolutions',
+    images: 'https://codehub-solutions.vercel.app/og-image.png',
+  },
   themeColor: "#00004b",
 };
 
-async function getGeneralSettings() {
-  const res = axios.get('http://127.0.0.1:8000/api/general');
-  return (await res).data;
-}
+//Favicon
 
 <>
   <link
@@ -45,6 +57,19 @@ async function getGeneralSettings() {
 export default async function RootLayout({ children }) {
 
   const data = await getGeneralSettings();
+
+
+  if (data?.seo_settings) {
+    metadata = {
+      title: data.seo_settings.title || metadata.title,
+      description: data.seo_settings.description || metadata.description,
+      openGraph: {
+        title: data.seo_settings.title || metadata.openGraph.title,
+        description: data.seo_settings.description || metadata.openGraph.description,
+        images: data.seo_settings.full_path.image || metadata.openGraph.images,
+      },
+    };
+  }
 
   return (
     <>

@@ -10,6 +10,7 @@ function SelectServiceComponent({ name, control, defaultValue, services, errorme
     return (
         <div>
             <Select
+                instanceId="service-react-select"
                 ref={field.ref}
                 classNamePrefix="service-react-select input-styling"
                 options={options}

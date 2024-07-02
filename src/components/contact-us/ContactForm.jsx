@@ -36,7 +36,7 @@ function ContactForm({ services, formSettings }) {
             fn.append('message', data.message)
             fn.append('email', data.email)
 
-            return await axios.post('http://127.0.0.1:8000/api/submit', fn, { headers: { "Content-Type": 'multipart/form-data' } })
+            return await axios.post('https://admin.codehubsolutions.net/api/submit', fn, { headers: { "Content-Type": 'multipart/form-data' } })
         },
         onSuccess: _ => {
             reset();

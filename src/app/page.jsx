@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 async function getData() {
-  const res = axios.get('http://127.0.0.1:8000/api/home');
+  const res = axios.get('https://admin.codehubsolutions.net/api/home');
   return (await res).data;
 }
 
