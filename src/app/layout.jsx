@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import axios from "axios";
 import AppProviders from "@/providers/AppProviders";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 
@@ -78,6 +79,7 @@ export default async function RootLayout({ children }) {
           <AppProviders>
             <Navbar menuItems={data?.menu_items} Logo={data?.logo} />
             {children}
+            <SpeedInsights />
             <Footer Logo={data?.logo} FooterSettings={data?.footer_settings} socialMedia={data?.social_media_links} footerDetails={data?.footer_details} />
           </AppProviders>
         </body>
