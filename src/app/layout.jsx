@@ -1,16 +1,13 @@
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
-import axios from "axios";
 import AppProviders from "@/providers/AppProviders";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 async function getGeneralSettings() {
-  // const res = axios.get('https://admin.codehubsolutions.net/api/general', { headers: { "Cache-Control": "no-cache" } });
-  // return (await res).data;
   const res = await fetch('https://admin.codehubsolutions.net/api/general', {cache: 'no-store'});
-  return (await res.json());
+  return await res.json();
 }
 
 export let metadata = {
@@ -25,7 +22,7 @@ export let metadata = {
     siteName: 'CodeHubSolutions',
     images: 'https://codehub-solutions.vercel.app/og-image.png',
   },
-
+  
 };
 
 //Favicon
