@@ -5,12 +5,11 @@ import Services from '@/components/services/Services';
 import Statistics from '@/components/statistics/Statistics';
 import Testimonials from '@/components/testimonials/Testimonials';
 import TheHub from '@/components/theHub/TheHub';
-import axios from 'axios';
 
 
 async function getData() {
-  const res = axios.get('https://admin.codehubsolutions.net/api/home');
-  return (await res).data;
+  const res = await fetch('https://admin.codehubsolutions.net/api/home', { cache: 'no-store' });
+  return await res.json();
 }
 
 async function Home() {
