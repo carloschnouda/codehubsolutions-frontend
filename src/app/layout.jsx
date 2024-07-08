@@ -9,7 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 export const fetchCache = 'force-no-store'
 
 async function getGeneralSettings() {
-  const res = axios.get('https://admin.codehubsolutions.net/api/general');
+  const res = axios.get('https://admin.codehubsolutions.net/api/general', { headers: { "Cache-Control": "no-cache" } });
   return (await res).data;
 }
 
@@ -25,7 +25,7 @@ export let metadata = {
     siteName: 'CodeHubSolutions',
     images: 'https://codehub-solutions.vercel.app/og-image.png',
   },
-  
+
 };
 
 //Favicon
