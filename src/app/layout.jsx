@@ -6,6 +6,7 @@ import AppProviders from "@/providers/AppProviders";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
+export const fetchCache = 'force-no-store'
 
 async function getGeneralSettings() {
   const res = axios.get('https://admin.codehubsolutions.net/api/general');
@@ -15,6 +16,7 @@ async function getGeneralSettings() {
 export let metadata = {
   title: "HomeData",
   description: "Test Description",
+  themeColor: "#00004b",
   openGraph: {
     type: 'website',
     title: 'HomeTest',
@@ -23,7 +25,7 @@ export let metadata = {
     siteName: 'CodeHubSolutions',
     images: 'https://codehub-solutions.vercel.app/og-image.png',
   },
-  themeColor: "#00004b",
+  
 };
 
 //Favicon
@@ -69,6 +71,7 @@ export default async function RootLayout({ children }) {
         description: data.seo_settings.description || metadata.openGraph.description,
         images: data.seo_settings.full_path.image || metadata.openGraph.images,
       },
+      themeColor: "#00004b",
     };
   }
 
