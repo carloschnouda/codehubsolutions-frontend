@@ -7,7 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 async function getGeneralSettings() {
-  const res = axios.get('https://admin.codehubsolutions.net/api/general', { headers: { "Cache-Control": "no-cache" } });
+  const res = axios.get('https://admin.codehubsolutions.net/api/general', { cache: 'no-store' });
   return (await res).data;
 }
 
