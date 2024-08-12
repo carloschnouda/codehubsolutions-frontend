@@ -1,0 +1,13 @@
+.cardDescription ul,
+.cardDescription li {
+  list-style: initial;
+}
+.cardDescription ul{
+    padding-left: 16px;
+}
+
+.ticket{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

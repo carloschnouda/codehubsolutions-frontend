@@ -33,7 +33,7 @@ function TestimonialBox({ number, label }) {
         <>
             <div className="col-span-1" ref={ref}>
                 <div className="text-[#00004b] bg-white rounded px-8 py-6 h-full flex flex-col justify-center">
-                    <h1 className='text-xl mb-2'>{label}</h1>
+                    <h1 className='text-xl mb-2 proxima-nova-regular'>{label}</h1>
                     {inView ? <CountUp className='text-3xl font-bold' end={number} duration={3} /> : '0'}
                 </div>
             </div>

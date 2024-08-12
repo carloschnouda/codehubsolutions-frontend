@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'ProximaNovaBold';
+  src: url('../assets/fonts/ProximaNova-Bold.woff2') format('woff2'),
+    url('../assets/fonts/ProximaNova-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ProximaNovaRegular';
+  src: url('../assets/fonts/ProximaNova-Regular.woff2') format('woff2'),
+    url('../assets/fonts/ProximaNova-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ProximaNovaExBold';
+  src: url('../assets/fonts/ProximaNova-Extrabld.woff2') format('woff2'),
+    url('../assets/fonts/ProximaNova-Extrabld.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.proxima-nova-regular {
+  font-family: 'ProximaNovaRegular';
+}
+
+.proxima-nova-bold {
+  font-family: 'ProximaNovaBold';
+}
+
+.proxima-nova-ex-bold {
+  font-family: 'ProximaNovaExBold';
+}
+
 :root {
   --bg: #0d0c22;
   --bgSoft: #2d2b42;
@@ -73,7 +112,7 @@ textarea {
   opacity: 1 !important;
 }
 
-.service-react-select.input-styling__single-value{
+.service-react-select.input-styling__single-value {
   color: #00004b !important;
 }
 .service-react-select.input-styling__menu-list {

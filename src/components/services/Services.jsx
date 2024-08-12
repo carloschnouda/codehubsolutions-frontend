@@ -8,20 +8,34 @@ function Services({ servicesTitle, servicesSubtitle, services }) {
         <>
             <section id="services" className='px-6 lg:px-24 py-10 lg:py-20 bg-gray-100'>
                 <div className='text-center'>
-                    <h1 className='text-4xl lg:text-6xl text-[#00004b] font-bold mb-4'>{servicesTitle}</h1>
+                    <h1 className='text-4xl lg:text-6xl text-[#00004b] proxima-nova-ex-bold mb-4'>{servicesTitle}</h1>
                     <h3 className='text-xl lg:text-4xl text-[#00004b] font-bold'>{servicesSubtitle}</h3>
                 </div>
-                <div className=' hidden md:grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-10'>
+                {/* <div className=' hidden md:grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-10'>
                     {
                         services?.map((service, index) => (
                             <ServicesCard key={index} service={service} />
                         ))
                     }
-                </div>
+                </div> */}
 
-                <div className='md:hidden'>
+                <div>
                     <Swiper
                         slidesPerView={1.2}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 2.3,
+                                spaceBetween: 10,
+                            },
+                            991: {
+                                slidesPerView: 3.4,
+                                spaceBetween: 10,
+                            },
+                            1200: {
+                                slidesPerView: 4,
+                                spaceBetween: 10,
+                            },
+                        }}
                         spaceBetween={10}
                         className="ServicesSwiper mt-10"
                     >
