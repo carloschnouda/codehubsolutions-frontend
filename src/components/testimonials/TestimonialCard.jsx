@@ -13,15 +13,15 @@ function TestimonialCard({ post }) {
                     <div>
                         <div className="relative mb-4 flex items-center gap-x-4">
                             <div className="leading-6">
-                                <p className="text-sm font-semibold text-[#00004b]">
+                                <p className="text-sm proxima-nova-bold text-[#00004b]">
                                     <span className="absolute inset-0" />
                                     {post?.name}
                                 </p>
-                                <p className="text-sm text-[#00004b]">{post?.position}</p>
+                                <p className="text-sm text-[#00004b] proxima-nova-regular">{post?.position}</p>
                             </div>
                         </div>
                         <div className="group relative">
-                            <p className="line-clamp-3 text-sm leading-6 text-gray-600">{post?.description}</p>
+                            <p className="line-clamp-3 text-sm leading-6 text-gray-600 proxima-nova-regular">{post?.description}</p>
                         </div>
 
                     </div>

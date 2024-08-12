@@ -64,7 +64,7 @@ function Navbar({ menuItems, Logo }) {
                             <div className="flex ">
                                 <div className="-m-1.5 p-1.5">
                                     <Link href={'/'}>
-                                        <Image width={150} height={150} src={Logo} alt="Desktop Logo" />
+                                        <Image width={175} height={175} src={Logo} alt="Desktop Logo" />
                                     </Link>
                                 </div>
                             </div>

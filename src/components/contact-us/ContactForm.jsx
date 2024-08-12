@@ -7,15 +7,17 @@ import CustomInput from './CustomInput'
 import { useForm } from 'react-hook-form'
 import { useMutation } from '@tanstack/react-query'
 import axios from "axios";
+import SelectSubjectComponent from './SelectSubjectComponent'
 
-function ContactForm({ services, formSettings }) {
+function ContactForm({ services, formSettings, subjects }) {
+
     const { register, handleSubmit, control, watch, setError, formState: { errors }, reset } = useForm({
         defaultValues:
         {
             name: '',
             email: '',
             phone_number: '',
-            subject: '',
+            subject: null,
             service: null,
             file: null,
             message: '',
@@ -31,8 +33,9 @@ function ContactForm({ services, formSettings }) {
             }
             fn.append('name', data.name)
             fn.append('phone_number', data.phone_number)
-            fn.append('subject', data.subject)
+            // fn.append('subject', data.subject)
             fn.append('service_id', data?.service_id ? data?.service_id : '')
+            fn.append('subject_id', data?.subject_id ? data?.subject_id : '')
             fn.append('message', data.message)
             fn.append('email', data.email)
 
@@ -60,7 +63,7 @@ function ContactForm({ services, formSettings }) {
 
 
     function onSubmit(data) {
-        ContactFormMutation.mutate({ ...data, service_id: data?.service?.value });
+        ContactFormMutation.mutate({ ...data, service_id: data?.service?.value, subject_id: data?.subject?.value });
     }
 
     const handlePhoneInput = (e) => {
@@ -73,10 +76,10 @@ function ContactForm({ services, formSettings }) {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="space-y-12 px-6 lg:px-24 xl:px-64">
+                <div className="space-y-12 px-6 lg:px-36 xl:px-72 xxl:px-80">
                     <div className="pb-12">
 
-                        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-6">
+                        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-4">
                             <CustomInput
                                 type="text"
                                 name="name"
@@ -105,7 +108,7 @@ function ContactForm({ services, formSettings }) {
                                 errormessage={errors?.phone_number?.message}
                                 {...register('phone_number')}
                             />
-                            <CustomInput
+                            {/* <CustomInput
                                 type="text"
                                 name="subject"
                                 id="subject"
@@ -113,16 +116,8 @@ function ContactForm({ services, formSettings }) {
                                 label={formSettings?.subject_label}
                                 errormessage={errors?.subject?.message}
                                 {...register('subject')}
-                            />
-                            <div className="sm:col-span-3">
-                                <label className="block text-sm font-medium leading-6 text-[#00004b]">
-                                    {formSettings?.service_label}
-                                </label>
-                                <div className="mt-2">
-                                    <SelectServiceComponent errormessage={errors?.service_id?.message} services={services} control={control} name="service" />
-                                </div>
-                            </div>
-                            <div className="sm:col-span-3">
+                            /> */}
+                            <div className="sm:col-span-2">
                                 <label htmlFor="phone_number" className="mb-2 block text-sm font-medium leading-6 text-[#00004b]">
                                     {formSettings?.file_label}
                                 </label>
@@ -134,6 +129,24 @@ function ContactForm({ services, formSettings }) {
                                             ? (watch('file'))[0]?.name
                                             : `${formSettings.file_placeholder}`
                                     } />
+                            </div>
+
+                            <div className="sm:col-span-2">
+                                <label className="block text-sm font-medium leading-6 text-[#00004b]">
+                                    {formSettings?.service_label}
+                                </label>
+                                <div className="mt-2">
+                                    <SelectServiceComponent errormessage={errors?.service_id?.message} services={services} control={control} name="service" />
+                                </div>
+                            </div>
+
+                            <div className="sm:col-span-2">
+                                <label className="block text-sm font-medium leading-6 text-[#00004b]">
+                                    {formSettings?.subject_label}
+                                </label>
+                                <div className="mt-2">
+                                    <SelectSubjectComponent errormessage={errors?.subject_id?.message} subjects={subjects} control={control} name="subject" />
+                                </div>
                             </div>
 
                             <CustomInput

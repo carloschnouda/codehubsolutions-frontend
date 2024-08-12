@@ -39,7 +39,7 @@ async function Home() {
       <TheHub TheHubTitle={data?.settings?.the_hub_section_title} theHubSections={theHubSections} />
       <Statistics statistics={statistics} bgImage={data?.settings?.full_path?.statistics_bg_image} />
       <Testimonials posts={testimonials} TestimonialTitle={data?.settings?.testimonials_section_title} />
-      <Contact formSettings={formSettings} title={data?.settings?.contact_section_title} services={services} />
+      <Contact formSettings={formSettings} title={data?.settings?.contact_section_title} services={services} subjects={theHubSections} />
     </>
   );
 }

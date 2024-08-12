@@ -11,7 +11,7 @@ function Testimonials({ posts, TestimonialTitle }) {
         <>
             <section id="testimonials" className='px-6 lg:px-24 py-10 lg:py-20'>
                 <div className='text-center'>
-                    <h1 className=' max-w-3xl m-auto text-4xl lg:text-6xl text-[#00004b] font-bold mb-4'>{TestimonialTitle}</h1>
+                    <h1 className=' max-w-3xl m-auto text-4xl lg:text-6xl text-[#00004b] proxima-nova-ex-bold mb-4'>{TestimonialTitle}</h1>
                 </div>
 
                 <div className='mt-10'>

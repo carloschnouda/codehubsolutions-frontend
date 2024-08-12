@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 const CustomInput = forwardRef(function CustomInput({ label, ...props }, ref) {
     return (
         <>
-            <div className={props.type === 'textarea' ? `sm:col-span-6` : `sm:col-span-3`}>
+            <div className={props.type === 'textarea' ? `sm:col-span-4` : `sm:col-span-2`}>
                 <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-[#00004b]">
                     {label}
                 </label>
