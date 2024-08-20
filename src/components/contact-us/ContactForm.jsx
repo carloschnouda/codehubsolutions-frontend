@@ -76,7 +76,7 @@ function ContactForm({ services, formSettings, subjects }) {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="space-y-12 px-6 lg:px-36 xl:px-72 xxl:px-80">
+                <div className="space-y-12 px-6 lg:px-36 xl:px-72 2xl:px-[30%]">
                     <div className="pb-12">
 
                         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-4">
@@ -98,6 +98,7 @@ function ContactForm({ services, formSettings, subjects }) {
                                 errormessage={errors?.email?.message}
                                 {...register('email')}
                             />
+
                             <CustomInput
                                 id="phone_number"
                                 name="phone_number"
@@ -108,15 +109,24 @@ function ContactForm({ services, formSettings, subjects }) {
                                 errormessage={errors?.phone_number?.message}
                                 {...register('phone_number')}
                             />
-                            {/* <CustomInput
-                                type="text"
-                                name="subject"
-                                id="subject"
-                                autoComplete="subject"
-                                label={formSettings?.subject_label}
-                                errormessage={errors?.subject?.message}
-                                {...register('subject')}
-                            /> */}
+                            <div className="sm:col-span-2">
+                                <label className="block text-sm font-medium leading-6 text-[#00004b]">
+                                    {formSettings?.subject_label}
+                                </label>
+                                <div className="mt-2">
+                                    <SelectSubjectComponent errormessage={errors?.subject_id?.message} subjects={subjects} control={control} name="subject" />
+                                </div>
+                            </div>
+
+                            <div className="sm:col-span-2">
+                                <label className="block text-sm font-medium leading-6 text-[#00004b]">
+                                    {formSettings?.service_label}
+                                </label>
+                                <div className="mt-2">
+                                    <SelectServiceComponent errormessage={errors?.service_id?.message} services={services} control={control} name="service" />
+                                </div>
+                            </div>
+
                             <div className="sm:col-span-2">
                                 <label htmlFor="phone_number" className="mb-2 block text-sm font-medium leading-6 text-[#00004b]">
                                     {formSettings?.file_label}
@@ -131,23 +141,6 @@ function ContactForm({ services, formSettings, subjects }) {
                                     } />
                             </div>
 
-                            <div className="sm:col-span-2">
-                                <label className="block text-sm font-medium leading-6 text-[#00004b]">
-                                    {formSettings?.service_label}
-                                </label>
-                                <div className="mt-2">
-                                    <SelectServiceComponent errormessage={errors?.service_id?.message} services={services} control={control} name="service" />
-                                </div>
-                            </div>
-
-                            <div className="sm:col-span-2">
-                                <label className="block text-sm font-medium leading-6 text-[#00004b]">
-                                    {formSettings?.subject_label}
-                                </label>
-                                <div className="mt-2">
-                                    <SelectSubjectComponent errormessage={errors?.subject_id?.message} subjects={subjects} control={control} name="subject" />
-                                </div>
-                            </div>
 
                             <CustomInput
                                 type="textarea"
