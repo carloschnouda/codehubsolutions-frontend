@@ -109,7 +109,7 @@ function ContactForm({ services, formSettings, subjects }) {
                                 errormessage={errors?.phone_number?.message}
                                 {...register('phone_number')}
                             />
-                            <div className="sm:col-span-2">
+                            <div className="sm:col-span-2 z-40">
                                 <label className="block text-sm font-medium leading-6 text-[#00004b]">
                                     {formSettings?.subject_label}
                                 </label>
