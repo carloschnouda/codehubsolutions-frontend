@@ -2,6 +2,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ServicesCard from './ServicesCard'
+import styles from './services.module.css'
 
 function Services({ servicesTitle, servicesSubtitle, services }) {
     return (
@@ -37,7 +38,7 @@ function Services({ servicesTitle, servicesSubtitle, services }) {
                             },
                         }}
                         spaceBetween={10}
-                        className="ServicesSwiper mt-10"
+                        className={`${styles.ServicesSwiper} mt-10 `}
                     >
                         {
                             services?.map((service, index) => (
