@@ -3,10 +3,11 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import AppProviders from "@/providers/AppProviders";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 
 async function getGeneralSettings() {
-  const res = await fetch('https://admin.codehubsolutions.net/api/general', {cache: 'no-store'});
+  const res = await fetch('https://admin.codehubsolutions.net/api/general', { cache: 'no-store' });
   return await res.json();
 }
 
@@ -22,11 +23,10 @@ export let metadata = {
     siteName: 'CodeHubSolutions',
     images: 'https://codehub-solutions.vercel.app/og-image.png',
   },
-  
+
 };
 
 //Favicon
-
 <>
   <link
     rel="apple-touch-icon"
@@ -75,6 +75,7 @@ export default async function RootLayout({ children }) {
   return (
     <>
       <html lang="en" >
+      <GoogleAnalytics />
         <body>
           <AppProviders>
             <Navbar menuItems={data?.menu_items} Logo={data?.logo} />
@@ -83,6 +84,7 @@ export default async function RootLayout({ children }) {
             <Footer Logo={data?.logo} FooterSettings={data?.footer_settings} socialMedia={data?.social_media_links} footerDetails={data?.footer_details} />
           </AppProviders>
         </body>
+        
       </html>
     </>
   );
