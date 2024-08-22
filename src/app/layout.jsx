@@ -11,20 +11,24 @@ async function getGeneralSettings() {
   return await res.json();
 }
 
+<meta name="google-site-verification" content="q105ADmhzM88x2BuQLBHO4UkDVLeC-c9D-2w9X0kAfo" />
+
 export let metadata = {
-  title: "HomeData",
-  description: "Test Description",
+  title: "CodeHubSolutions | Homepage",
+  description: "CRAFT YOUR CODING PROJECT From Inception To Excellence From Engineering & Science to Finance & Business fields, Take your Project from its Simplest Idea to the Highest Levels of Coding Expertise.",
   themeColor: "#00004b",
   openGraph: {
     type: 'website',
-    title: 'HomeTest',
-    description: 'CodeHubSolutions testing',
-    url: 'https://codehub-solutions.vercel.app/',
+    title: 'CodeHubSolutions | Homepage',
+    description: 'CRAFT YOUR CODING PROJECT From Inception To Excellence From Engineering & Science to Finance & Business fields, Take your Project from its Simplest Idea to the Highest Levels of Coding Expertise.',
+    url: 'https://www.codehubsolutions.net/',
     siteName: 'CodeHubSolutions',
-    images: 'https://codehub-solutions.vercel.app/og-image.png',
+    images: 'https://www.codehubsolutions.net/og-image.png',
   },
 
 };
+
+
 
 //Favicon
 <>
