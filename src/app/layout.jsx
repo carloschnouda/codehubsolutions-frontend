@@ -11,19 +11,20 @@ async function getGeneralSettings() {
   return await res.json();
 }
 
-<meta name="google-site-verification" content="q105ADmhzM88x2BuQLBHO4UkDVLeC-c9D-2w9X0kAfo" />
+const data = await getGeneralSettings();
 
 export let metadata = {
-  title: "CodeHubSolutions | Homepage",
-  description: "CRAFT YOUR CODING PROJECT From Inception To Excellence From Engineering & Science to Finance & Business fields, Take your Project from its Simplest Idea to the Highest Levels of Coding Expertise.",
+  title: data.seo_settings.title || "CodeHubSolutions",
+  description: data.seo_settings.description || "CodeHubSolutions",
   themeColor: "#00004b",
+
   openGraph: {
     type: 'website',
-    title: 'CodeHubSolutions | Homepage',
-    description: 'CRAFT YOUR CODING PROJECT From Inception To Excellence From Engineering & Science to Finance & Business fields, Take your Project from its Simplest Idea to the Highest Levels of Coding Expertise.',
+    title: data.seo_settings.title || 'CodeHubSolutions',
+    description: 'CodeHubSolutions',
     url: 'https://www.codehubsolutions.net/',
     siteName: 'CodeHubSolutions',
-    images: 'https://www.codehubsolutions.net/og-image.png',
+    images: data.seo_settings.full_path.image || 'https://www.codehubsolutions.net/og-image.png',
   },
 
 };
@@ -60,7 +61,7 @@ export let metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const data = await getGeneralSettings();
+
 
 
   if (data?.seo_settings) {
@@ -79,7 +80,7 @@ export default async function RootLayout({ children }) {
   return (
     <>
       <html lang="en" >
-      <GoogleAnalytics />
+        <GoogleAnalytics />
         <body>
           <AppProviders>
             <Navbar menuItems={data?.menu_items} Logo={data?.logo} />
@@ -88,7 +89,7 @@ export default async function RootLayout({ children }) {
             <Footer Logo={data?.logo} FooterSettings={data?.footer_settings} socialMedia={data?.social_media_links} footerDetails={data?.footer_details} />
           </AppProviders>
         </body>
-        
+
       </html>
     </>
   );
