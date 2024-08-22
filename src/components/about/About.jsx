@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import Animation from '../animation/Animation'
 
 
 function About({ aboutTitle, aboutDescription, aboutImage }) {
