@@ -162,7 +162,7 @@ function ContactForm({ services, formSettings, subjects }) {
                         type="submit"
                         className="rounded-3xl bg-[#00004b] px-10 py-3 text-lg font-semibold text-white shadow-sm hover:bg-[#0000b8] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
-                        {ContactFormMutation.isLoading ? 'Loading ...' : formSettings?.button_text}
+                        {ContactFormMutation.isPending ? 'Loading ...' : formSettings?.button_text}
                     </button>
                 </div>}
 
