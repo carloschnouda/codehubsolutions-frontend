@@ -11,6 +11,7 @@ function About({ aboutTitle, aboutDescription, aboutImage }) {
                     <div className="col-span-1">
                         <div className='proxima-nova-regular text-md lg:text-lg text-[#00004b]' dangerouslySetInnerHTML={{ __html: aboutDescription }}>
                         </div>
+                        
                     </div>
                     <div className="col-span-1">
                         <Image className={`h-full w-full object-cover aspect-video  rounded`} src={aboutImage} alt="aboutImage" width={500} height={500} />
