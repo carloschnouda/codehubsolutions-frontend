@@ -13,10 +13,13 @@ async function getGeneralSettings() {
 
 const data = await getGeneralSettings();
 
+export const viewport = {
+  themeColor: "#00004b",
+};
+
 export let metadata = {
   title: data.seo_settings.title || "CodeHubSolutions",
   description: data.seo_settings.description || "CodeHubSolutions",
-  themeColor: "#00004b",
 
   openGraph: {
     type: 'website',
@@ -73,7 +76,6 @@ export default async function RootLayout({ children }) {
         description: data.seo_settings.description || metadata.openGraph.description,
         images: data.seo_settings.full_path.image || metadata.openGraph.images,
       },
-      themeColor: "#00004b",
     };
   }
 
